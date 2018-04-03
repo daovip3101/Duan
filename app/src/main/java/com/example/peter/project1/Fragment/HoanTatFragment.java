@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.peter.project1.Adapter.adapter_rc_fragment_hoan_tat;
 import com.example.peter.project1.Model.SanPham;
+import com.example.peter.project1.Model.User;
 import com.example.peter.project1.R;
 
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ import static com.example.peter.project1.MuaNgayActivity.setCurrentPage;
 @SuppressLint("ValidFragment")
 public class HoanTatFragment extends android.support.v4.app.Fragment {
     Button btn_hoantat;
-    TextView tv_tongtien;
+    TextView tv_tongtien,txt_hoten,txt_email,txt_diachi,txt_ghichu,txt_sdt;
     View v;
     ArrayList<SanPham> arrayListGiohang;
     RecyclerView rc_giohang_hoantat;
@@ -58,6 +59,11 @@ public class HoanTatFragment extends android.support.v4.app.Fragment {
         return v;
     }
     public void Anhxa(){
+        txt_hoten=v.findViewById(R.id.tv_tenkhachhang_hoantat);
+        txt_email=v.findViewById(R.id.tv_email_hoantat);
+        txt_diachi=v.findViewById(R.id.tv_diachi_hoantat);
+        txt_ghichu=v.findViewById(R.id.tv_ghichu_hoantat);
+        txt_sdt=v.findViewById(R.id.tv_sdt_hoantat);
         // set tổng tiền
         tv_tongtien=v.findViewById(R.id.tv_tongtien);
         tv_tongtien.setText(CountTotalMoney()+"");
@@ -96,9 +102,15 @@ public class HoanTatFragment extends android.support.v4.app.Fragment {
             Log.d("demo",name+"-"+idName);
         }
     }
-    public void displayReceivedData(String message)
+    public void displayReceivedData(User user)
     {
-        Toast.makeText(getContext(), ""+message, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getContext(), ""+message, Toast.LENGTH_SHORT).show();
+        txt_hoten.setText(user.getHoTen());
+        txt_email.setText(user.getEmail());
+        txt_diachi.setText(user.getDiachi());
+        txt_ghichu.setText(user.getGhichu());
+        txt_sdt.setText(user.getSdt());
     }
+
 
 }

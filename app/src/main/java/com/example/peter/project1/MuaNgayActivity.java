@@ -9,6 +9,7 @@ import com.example.peter.project1.Adapter.adapterFragmentMuaNgayActivity;
 import com.example.peter.project1.Fragment.HoanTatFragment;
 import com.example.peter.project1.Fragment.ThongTinFragment;
 import com.example.peter.project1.Model.SanPham;
+import com.example.peter.project1.Model.User;
 import com.kofigyan.stateprogressbar.StateProgressBar;
 
 import java.util.ArrayList;
@@ -52,10 +53,10 @@ public class MuaNgayActivity extends AppCompatActivity implements ThongTinFragme
 
 
     @Override
-    public void sendData(String data) {
+    public void sendData(User user) {
         String tag = "android:switcher:" + R.id.vp_mungay_activity + ":" + 2;
         HoanTatFragment f = (HoanTatFragment) getSupportFragmentManager().findFragmentByTag(tag);
-        f.displayReceivedData(data);
+        f.displayReceivedData(user);
 //        Toast.makeText(this, ""+tag, Toast.LENGTH_SHORT).show();
     }
 }

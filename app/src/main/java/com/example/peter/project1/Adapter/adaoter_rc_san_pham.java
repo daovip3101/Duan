@@ -121,7 +121,7 @@ public class adaoter_rc_san_pham extends RecyclerView.Adapter<RecyclerView.ViewH
              int hinhSp=sp.getHinh();
             ((ItemViewHolder) holder).txt_gia.setText(giaSp+"");
             ((ItemViewHolder) holder).txt_ten.setText(tenSp);
-            ((ItemViewHolder) holder).img.setImageResource(hinhSp);
+            ((ItemViewHolder) holder).img.setImageResource(R.drawable.garan);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

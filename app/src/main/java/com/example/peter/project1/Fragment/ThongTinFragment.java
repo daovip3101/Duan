@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.andreabaccega.widget.FormEditText;
 import com.example.peter.project1.MainActivity;
+import com.example.peter.project1.Model.User;
 import com.example.peter.project1.R;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -35,6 +36,7 @@ public class ThongTinFragment extends android.support.v4.app.Fragment {
     View v;
     String user_ten, user_email, user_diachi, user_sdt, user_ghichu;
     SendData sendData;
+    User user;
     public static final String MY_PREFS_NAME = "USERINFO";
 
     public ThongTinFragment() {
@@ -66,21 +68,23 @@ public class ThongTinFragment extends android.support.v4.app.Fragment {
         btn_tiep_tuc_thong_tin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//              Validation();
+                getUserInput();
                 setCurrentStateTwo();
                 setCurrentPage(1);
-                sendData.sendData("daovip");
+                sendData.sendData(user);
             }
         });
     }
 
     public void getUserInput() {
+        Validation();
         user_ten = et_hoten_thongtin.getText().toString();
         user_diachi = et_diachi_thongtin.getText().toString();
         user_email = et_email_thongtin.getText().toString();
         user_sdt = et_sdt_thongtin.getText().toString();
         user_ghichu = et_ghichu_thongtin.getText().toString();
-        Validation();
+        user= new User(user_ten,user_sdt,user_diachi,user_email,user_ghichu);
+
     }
 
     public void Validation() {
@@ -98,7 +102,7 @@ public class ThongTinFragment extends android.support.v4.app.Fragment {
     }
 
     public interface  SendData{
-        void sendData(String data);
+        void sendData(User user);
     }
 
     @Override

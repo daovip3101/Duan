@@ -136,7 +136,6 @@ public class SanPhamActivity extends AppCompatActivity {
                 if (arrayListSanPham.size() <= 50) {
                     arrayListSanPham.add(null);
                     adapter.notifyItemInserted(arrayListSanPham.size() - 1);
-                    rc_san_pham.setLayoutManager(new GridLayoutManager(SanPhamActivity.this,1));
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
