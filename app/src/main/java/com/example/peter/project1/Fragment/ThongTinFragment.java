@@ -68,16 +68,12 @@ public class ThongTinFragment extends android.support.v4.app.Fragment {
         btn_tiep_tuc_thong_tin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getUserInput();
-                setCurrentStateTwo();
-                setCurrentPage(1);
-                sendData.sendData(user);
+                Validation();
             }
         });
     }
 
     public void getUserInput() {
-        Validation();
         user_ten = et_hoten_thongtin.getText().toString();
         user_diachi = et_diachi_thongtin.getText().toString();
         user_email = et_email_thongtin.getText().toString();
@@ -96,6 +92,8 @@ public class ThongTinFragment extends android.support.v4.app.Fragment {
         if (allValid) {
             setCurrentPage(1);
             setCurrentStateTwo();
+            getUserInput();
+            sendData.sendData(user);
         } else {
 
         }

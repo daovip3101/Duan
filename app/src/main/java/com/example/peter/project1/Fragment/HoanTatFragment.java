@@ -24,7 +24,9 @@ import java.util.ArrayList;
 
 import static android.content.Context.MODE_PRIVATE;
 import static com.example.peter.project1.Fragment.ThongTinFragment.MY_PREFS_NAME;
-import static com.example.peter.project1.MuaNgayActivity.setCurrentPage;
+import static com.example.peter.project1.GioHangActivity.RemoveArraylistGiohang;
+
+
 
 
 /**
@@ -76,7 +78,8 @@ public class HoanTatFragment extends android.support.v4.app.Fragment {
         btn_hoantat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Đã hoàn tất", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Đã hoàn tất và gửi giỏ hàng lên sever", Toast.LENGTH_SHORT).show();
+                RemoveArraylistGiohang();
                 getActivity().finish();
             }
         });
@@ -87,11 +90,11 @@ public class HoanTatFragment extends android.support.v4.app.Fragment {
         rc_giohang_hoantat.setAdapter(adapter);
     }
     public  int CountTotalMoney() {
-        int size=0;
+        int total=0;
         for (int i = 0; i < arrayListGiohang.size(); i++) {
-            size=size+arrayListGiohang.get(i).getSoluong();
+            total=total+arrayListGiohang.get(i).getSoluong()*arrayListGiohang.get(i).getDongia();
         }
-        return size;
+        return total;
     }
     public void getUserInfo(){
         SharedPreferences prefs = getContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
@@ -111,6 +114,5 @@ public class HoanTatFragment extends android.support.v4.app.Fragment {
         txt_ghichu.setText(user.getGhichu());
         txt_sdt.setText(user.getSdt());
     }
-
 
 }

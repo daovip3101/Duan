@@ -25,6 +25,7 @@ public class ChiTietActivity extends AppCompatActivity {
     ImageView imgHinhSp;
     ImageButton img_back_chitiet;
     ImageView img_giohang_chi_tiet;
+    int key=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class ChiTietActivity extends AppCompatActivity {
 
     }
     public void getData(){
+        key=getIntent().getIntExtra("key",0);
         sp= (SanPham) getIntent().getSerializableExtra("SanPham");
         giaSp.setText(sp.getDongia()+"");
         tenSp.setText(sp.getTenSanPha());
@@ -76,8 +78,12 @@ public class ChiTietActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // gửi và thêm sản phẩm trên sever
                 // đồng thời update giỏ hàng ở Sanpham Activity
+                if(key==0){
+                    Addgiohang(sp);
+                }
                 showToastTy();
-                Addgiohang(sp);
+                Toast.makeText(ChiTietActivity.this, "Đã thêm vào giỏ hàng trên sever", Toast.LENGTH_SHORT).show();
+
             }
         });
     }

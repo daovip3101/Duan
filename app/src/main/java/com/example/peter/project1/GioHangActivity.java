@@ -194,6 +194,9 @@ public class GioHangActivity extends AppCompatActivity {
         i.putExtra("arrayListgiohang",arrayList_giohang);
         startActivity(i);
     }
+    public static void RemoveArraylistGiohang(){
+        arrayList_giohang.clear();
 
+    }
 
 }

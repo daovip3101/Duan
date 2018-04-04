@@ -54,6 +54,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
             <me.relex.circleindicator.CircleIndicator
+                app:ci_width="10dp"
+                app:ci_height="10dp"
+                app:ci_drawable_unselected="@drawable/ci_unselected"
+                app:ci_drawable="@drawable/ci_selected"
                 android:layout_alignParentBottom="true"
                 android:id="@+id/indicator_default"
                 android:layout_width="match_parent"
@@ -85,40 +89,14 @@
 
         </LinearLayout>
         <HorizontalScrollView
+            android:scrollbarSize="0dp"
+            android:background="#dcef33"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal" >
-
-                <ImageView
-                    android:id="@+id/imgV_sp1"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:background="@drawable/bg_login" />
-
-                <ImageView
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:layout_marginLeft="15dp"
-                    android:background="@drawable/bg_login" />
-
-                <ImageView
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:layout_marginLeft="15dp"
-                    android:background="@drawable/bg_login"/>
-
-                <ImageView
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:layout_marginLeft="15dp"
-                    android:background="@drawable/bg_login"/>
-
-            </LinearLayout>
+            android:layout_height="150dp">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rc_mon_chinh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
         </HorizontalScrollView>
 
         <!--view 1 ô tụi bay tự gắn vô nhé + hình luôn :D -->
@@ -142,39 +120,17 @@
         </LinearLayout>
 
         <HorizontalScrollView
+            android:scrollbarSize="0dp"
+
+            android:background="#d9c008"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             >
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal" >
-
-                <ImageView
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:background="@drawable/bg_login" />
-
-                <ImageView
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:layout_marginLeft="15dp"
-                    android:background="@drawable/bg_login" />
-
-                <ImageView
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:layout_marginLeft="15dp"
-                    android:background="@drawable/bg_login"/>
-
-                <ImageView
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:layout_marginLeft="15dp"
-                    android:background="@drawable/bg_login"/>
-
-            </LinearLayout>
+           <android.support.v7.widget.RecyclerView
+               android:id="@+id/rc_mon_van_vat"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
         </HorizontalScrollView>
 
         <!--view 1 ô tụi bay tự gắn vô nhé + hình luôn :D -->
@@ -198,39 +154,16 @@
         </LinearLayout>
 
         <HorizontalScrollView
+            android:scrollbarSize="0dp"
+            android:background="#44be18"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             >
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal" >
-
-                <ImageView
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:background="@drawable/bg_login" />
-
-                <ImageView
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:layout_marginLeft="15dp"
-                    android:background="@drawable/bg_login" />
-
-                <ImageView
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:layout_marginLeft="15dp"
-                    android:background="@drawable/bg_login"/>
-
-                <ImageView
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:layout_marginLeft="15dp"
-                    android:background="@drawable/bg_login"/>
-
-            </LinearLayout>
+           <android.support.v7.widget.RecyclerView
+               android:id="@+id/rc_thuc_uong"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
         </HorizontalScrollView>
     </LinearLayout>
 
