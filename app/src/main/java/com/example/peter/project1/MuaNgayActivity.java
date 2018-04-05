@@ -1,11 +1,13 @@
 package com.example.peter.project1;
 
-import android.support.v4.view.ViewPager;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Toast;
+
 
 import com.example.peter.project1.Adapter.adapterFragmentMuaNgayActivity;
+import com.example.peter.project1.CustomView.OneDirectionWipeViewpager;
+import com.example.peter.project1.Enum.DirectionViewpager;
 import com.example.peter.project1.Fragment.HoanTatFragment;
 import com.example.peter.project1.Fragment.ThongTinFragment;
 import com.example.peter.project1.Model.SanPham;
@@ -15,7 +17,7 @@ import com.kofigyan.stateprogressbar.StateProgressBar;
 import java.util.ArrayList;
 
 public class MuaNgayActivity extends AppCompatActivity implements ThongTinFragment.SendData{
-    static ViewPager vp_mungay_activity;
+    static OneDirectionWipeViewpager vp_mungay_activity;
     static StateProgressBar stateProgressBar;
     ArrayList<SanPham> arrayListgiohang;
     @Override
@@ -34,6 +36,7 @@ public class MuaNgayActivity extends AppCompatActivity implements ThongTinFragme
     public void setUpViewpager(){
         adapterFragmentMuaNgayActivity adapter = new adapterFragmentMuaNgayActivity(getSupportFragmentManager(),arrayListgiohang);
         vp_mungay_activity.setAdapter(adapter);
+        vp_mungay_activity.setAllowedSwipeDirection(DirectionViewpager.left);
 
     }
     public static void setCurrentPage(int item){

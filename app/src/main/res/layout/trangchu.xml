@@ -79,7 +79,7 @@
             android:text="Món Chính"
                 android:layout_marginLeft="10dp"/>
             <TextView
-                android:id="@+id/tv_xemtatca1"
+                android:id="@+id/tv_xemtatca_mon_chinh"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Xem tất cả"
@@ -109,7 +109,7 @@
                 android:text="Món Ăn vặt"
                 android:layout_marginLeft="10dp"/>
             <TextView
-                android:id="@+id/tv_xemtatca2"
+                android:id="@+id/tv_xemtatca_mon_vat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Xem tất cả"
@@ -143,7 +143,7 @@
                 android:text="Thức Uống"
                 android:layout_marginLeft="10dp"/>
             <TextView
-                android:id="@+id/tv_xemtatca3"
+                android:id="@+id/tv_xemtatca_thuc_uong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Xem tất cả"

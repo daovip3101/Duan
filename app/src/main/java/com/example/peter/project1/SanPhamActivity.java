@@ -12,8 +12,12 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.baoyz.widget.PullRefreshLayout;
@@ -36,7 +40,7 @@ public class SanPhamActivity extends AppCompatActivity {
     adaoter_rc_san_pham adapter;
     PullRefreshLayout swipe_refresh_layout;
     static ArrayList<SanPham> arrayList_giohang;
-
+    TextView txt_loai;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +82,9 @@ public class SanPhamActivity extends AppCompatActivity {
     }
 
     public void Anhxa() {
-        ;
+        txt_loai=findViewById(R.id.txt_loai);
+        // Set Title
+        txt_loai.setText(getIntent().getStringExtra("LOAI"));
         swipe_refresh_layout = findViewById(R.id.swipe_refresh_layout);
         arrayListSanPham = new ArrayList<>();
         img_btn_giohang = findViewById(R.id.img_btn_giohang);
@@ -135,11 +141,14 @@ public class SanPhamActivity extends AppCompatActivity {
             public void onLoadMore() {
                 if (arrayListSanPham.size() <= 50) {
                     arrayListSanPham.add(null);
+                    arrayListSanPham.add(null);
+                    adapter.notifyItemInserted(arrayListSanPham.size() - 2);
                     adapter.notifyItemInserted(arrayListSanPham.size() - 1);
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             Toast.makeText(SanPhamActivity.this, "dang load", Toast.LENGTH_SHORT).show();
+                            arrayListSanPham.remove(arrayListSanPham.size() - 2);
                             arrayListSanPham.remove(arrayListSanPham.size() - 1);
                             adapter.notifyItemRemoved(arrayListSanPham.size());
                             //Random more data
@@ -239,5 +248,6 @@ public class SanPhamActivity extends AppCompatActivity {
         }
      return size;
     }
+
 
 }

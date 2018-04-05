@@ -1,6 +1,8 @@
 package com.example.peter.project1;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
@@ -9,11 +11,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.peter.project1.Adapter.AdapterSlideShow;
 import com.example.peter.project1.Adapter.adapter_rc_horizontalview;
@@ -29,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
     ViewPager viewPager_slideshow;
     ImageButton imgb;
     DrawerLayout dw;
-    TextView tv_xemtatca;
+    NavigationView navigationView;
+    TextView tv_xemtatca_mon_chinh,tv_xemtatca_mon_vat,tv_xemtatca_thuc_uong;
     ImageView  imgV_sp;
     RecyclerView rc_MonChinh,rc_Mon_Vat,rc_Thuc_uong;
     CircleIndicator circleIndicator;
@@ -53,18 +60,39 @@ public class MainActivity extends AppCompatActivity {
                 dw.openDrawer(GravityCompat.START);
             }
         });
-
-        tv_xemtatca.setOnClickListener(new View.OnClickListener() {
+        // Show all Món chính
+        tv_xemtatca_mon_chinh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this,SanPhamActivity.class);
+                i.putExtra("LOAI","Món chính");
                 startActivity(i);
             }
         });
-//        setUpCircleIndicator();
+        // Show all Món vặt
+        tv_xemtatca_mon_vat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this,SanPhamActivity.class);
+                i.putExtra("LOAI","Món Ăn Vặt");
+                startActivity(i);
+            }
+        });
+        // Show all Thức uống
+        tv_xemtatca_thuc_uong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this,SanPhamActivity.class);
+                i.putExtra("LOAI","Thức uống");
+                startActivity(i);
+            }
+        });
+        //Onclick Menu navigation
+        onClicMenu();
 
     }
     public void AnhXa(){
+        navigationView=findViewById(R.id.nav_view);
         arrayListThucUong=new ArrayList<>();
         arrayListMonAnVat=new ArrayList<>();
         arrayListMonChinh =new ArrayList<>();
@@ -74,7 +102,9 @@ public class MainActivity extends AppCompatActivity {
         rc_Thuc_uong=findViewById(R.id.rc_thuc_uong);
         imgb = findViewById(R.id.img_btn_menu);
         dw = findViewById(R.id.drawer_layout);
-        tv_xemtatca = findViewById(R.id.tv_xemtatca1);
+        tv_xemtatca_mon_chinh = findViewById(R.id.tv_xemtatca_mon_chinh);
+        tv_xemtatca_mon_vat = findViewById(R.id.tv_xemtatca_mon_vat);
+        tv_xemtatca_thuc_uong = findViewById(R.id.tv_xemtatca_thuc_uong);
         viewPager_slideshow=findViewById(R.id.vp_slideshow);
         circleIndicator=findViewById(R.id.indicator_default);
     }
@@ -145,5 +175,49 @@ public class MainActivity extends AppCompatActivity {
             setDataarrayListSanPhamSlideShow();
         }
     }
+
+
+    public void onClicMenu(){
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.monchinh:
+                        Intent i1 = new Intent(MainActivity.this,SanPhamActivity.class);
+                        i1.putExtra("LOAI","Món chính");
+                        startActivity(i1);
+                        break;
+                    case R.id.monanvat:
+                        Intent i2 = new Intent(MainActivity.this,SanPhamActivity.class);
+                        i2.putExtra("LOAI","Món Ăn Vặt");
+                        startActivity(i2);
+                        break;
+                    case R.id.trasua:
+                        Intent i3 = new Intent(MainActivity.this,SanPhamActivity.class);
+                        i3.putExtra("LOAI","Trà Sữa");
+                        startActivity(i3);
+                        break;
+                    case R.id.cafe:
+                        Intent i4 = new Intent(MainActivity.this,SanPhamActivity.class);
+                        i4.putExtra("LOAI","Cafe");
+                        startActivity(i4);
+                        break;
+                    case R.id.khac:
+                        Intent i5 = new Intent(MainActivity.this,SanPhamActivity.class);
+                        i5.putExtra("LOAI","Khác");
+                        startActivity(i5);
+                        break;
+                    case R.id.comvanphong:
+                        Intent i6 = new Intent(MainActivity.this,SanPhamActivity.class);
+                        i6.putExtra("LOAI","Khác");
+                        startActivity(i6);
+                        break;
+
+                }
+                return false;
+            }
+        });
+    }
+
 
 }

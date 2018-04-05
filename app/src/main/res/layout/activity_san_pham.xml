@@ -26,7 +26,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/txt_loai"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:gravity="center"
@@ -51,7 +51,7 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginStart="325dp"
-            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="@+id/txt_loai"
             app:layout_constraintTop_toTopOf="parent"></com.example.peter.project1.CustomView.Badge>
         <ImageButton
             android:id="@+id/img_btn_giohang"
@@ -72,7 +72,6 @@
         android:layout_height="match_parent">
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rc_san_pham"
-            android:background="#a49f4f"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         </android.support.v7.widget.RecyclerView>

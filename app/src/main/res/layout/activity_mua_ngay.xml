@@ -21,9 +21,9 @@
         app:spb_stateDescriptionColor="#efdc10"
         app:spb_animateToCurrentProgressState="true"
         app:spb_checkStateCompleted="true"/>
-    <android.support.v4.view.ViewPager
+    <com.example.peter.project1.CustomView.OneDirectionWipeViewpager
         android:id="@+id/vp_mungay_activity"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+        android:layout_height="match_parent"></com.example.peter.project1.CustomView.OneDirectionWipeViewpager>
 
 </LinearLayout>
